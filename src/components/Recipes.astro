@@ -1,0 +1,41 @@
+---
+import Arrow from "./Arrow.astro";
+import { programs, recipes, tips } from "../data.js";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section class="section" id="nutrition">
+  <SectionHeading
+    label="02 / ПИТАНИЕ"
+    title="Еда — твой союзник.<br /><em>Не ограничение.</em>"
+    description="Простые продукты. Понятные рецепты.<br />Баланс, который можно поддерживать."
+  />
+  <div class="recipe-grid">
+    {recipes.map((r, i) => (
+      <button class="recipe" data-recipe={i}>
+        <div class="recipe-img">
+          <span class="badge">
+            {r.time} · ≈ {r.kcal} ккал
+          </span>
+          <span class="food-poster" aria-hidden="true">
+            {["FUEL", "RISE", "FRESH"][i]}
+            <small>{r.kcal} / KCAL</small>
+          </span>
+        </div>
+        <h3>
+          {r.name}
+          <span>
+            <Arrow />
+          </span>
+        </h3>
+        <p>
+          Б {r.p} г <span>Ж {r.f} г</span> У {r.c} г
+        </p>
+      </button>
+    ))}
+  </div>
+  <p class="footnote">
+    Изображения иллюстративные. КБЖУ рецептов ориентировочные и зависят от
+    продуктов и порций.
+  </p>
+</section>

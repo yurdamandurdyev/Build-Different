@@ -1,0 +1,22 @@
+---
+import { programs, recipes, tips } from "../data.js";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section class="section" id="technique">
+  <SectionHeading
+    label="04 / БАЗА ЗНАНИЙ"
+    title="Двигайся<br /><em>с пониманием.</em>"
+    description="Небольшие детали, которые меняют<br />качество каждой тренировки."
+  />
+  {tips.map(([t, d], i) => (
+    <details>
+      <summary>
+        <span>0{i + 1}</span>
+        <h3>{t}</h3>
+        <b>+</b>
+      </summary>
+      <p>{d}</p>
+    </details>
+  ))}
+</section>

@@ -1,0 +1,73 @@
+---
+import Arrow from "./Arrow.astro";
+import { programs, recipes, tips } from "../data.js";
+---
+
+<section class="training-portal" aria-label="Пространство тренировок и питания">
+  <div class="portal-sticky">
+    <div class="portal-grid"></div>
+    <div class="portal-room">
+      <div class="room-floor"></div>
+      <div class="room-ceiling"></div>
+      <div class="room-vanishing" aria-hidden="true">
+        +
+      </div>
+      <div class="portal-depth">
+        {[
+          ...programs.map((p, i) => ({
+            name: p.name,
+            label: ["STRONG", "FLOW", "PACE"][i],
+            meta: p.meta,
+            kind: "program",
+            index: i,
+          })),
+          ...recipes.map((r, i) => ({
+            name: r.name,
+            label: ["FUEL", "RISE", "FRESH"][i],
+            meta: r.time + " / ≈ " + r.kcal + " ккал",
+            kind: "recipe",
+            index: i,
+          })),
+        ].map((c, i) => (
+          <button
+            class={`depth-card depth-card--${i % 3}`}
+            {...{ ["data-" + c.kind]: c.index }}
+            aria-label={`${c.kind === "program" ? "Программа" : "Рецепт"}: ${c.name}`}
+            tabindex="-1"
+          >
+            <span class="depth-card-meta">
+              0{i + 1} / {c.kind === "program" ? "TRAINING" : "NUTRITION"}
+            </span>
+            <span class="depth-card-art" aria-hidden="true">
+              <span>{c.label}</span>
+              <i></i>
+            </span>
+            <span class="depth-card-name">
+              {c.name}
+              <span>
+                <Arrow />
+              </span>
+            </span>
+            <span class="depth-card-meta">{c.meta}</span>
+          </button>
+        ))}
+      </div>
+      <div class="room-hud">
+        <span>SAINTTRAINING / INNER SPACE</span>
+        <span class="room-count">01 / 06</span>
+        <a href="#programs">К ПРОГРАММАМ ↓</a>
+      </div>
+      <div class="room-progress">
+        <span></span>
+      </div>
+    </div>
+    <div class="portal-title">
+      MOVE
+      <br />
+      YOUR
+      <br />
+      WAY.
+    </div>
+    <span class="portal-caption">ВОЙДИ В СВОЙ РИТМ / ЛИСТАЙ ВНИЗ</span>
+  </div>
+</section>

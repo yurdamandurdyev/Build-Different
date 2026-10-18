@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Editorial from "../components/Editorial.astro";
+import Portal from "../components/Portal.astro";
+import Programs from "../components/Programs.astro";
+import Manifesto from "../components/Manifesto.astro";
+import Recipes from "../components/Recipes.astro";
+import Calculator from "../components/Calculator.astro";
+import Technique from "../components/Technique.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout>
+  <div class="intro-screen" aria-hidden="true">
+    <span class="intro-mark">ST</span>
+    <span class="intro-note">SAINTTRAINING / INITIALIZING MOVEMENT</span>
+  </div>
+  <Header />
+  <main>
+    <Hero />
+    <Editorial />
+    <Portal />
+    <Programs />
+    <Manifesto />
+    <Recipes />
+    <Calculator />
+    <Technique />
+  </main>
+  <Footer />
+  <script>
+    import "../scripts/interactions.js";
+  </script>
+</BaseLayout>

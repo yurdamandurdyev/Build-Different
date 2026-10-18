@@ -1,0 +1,31 @@
+---
+import Arrow from "./Arrow.astro";
+---
+
+<section class="final-cta">
+  <span class="eyebrow">НЕБОЛЬШОЙ ШАГ. БОЛЬШОЕ НАЧАЛО.</span>
+  <h2>
+    НАЧНИ
+    <br />
+    <em>СЕГОДНЯ.</em>
+  </h2>
+  <a href="#programs" class="circle-cta" aria-label="Выбрать программу">
+    <Arrow />
+  </a>
+  <p>Твоё тело. Твой путь. Твой Sainttraining.</p>
+</section>
+<footer>
+  <a class="brand" href="#">
+    sainttraining<span>®</span>
+  </a>
+  <span>© {new Date().getFullYear()} Sainttraining · MVP</span>
+  <a href="#calculator">
+    Найди свой баланс <Arrow />
+  </a>
+</footer>
+<dialog>
+  <button class="close-dialog" aria-label="Закрыть">
+    ×
+  </button>
+  <div id="dialog-content"></div>
+</dialog>

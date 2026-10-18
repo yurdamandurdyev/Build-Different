@@ -1,0 +1,30 @@
+---
+import "../styles/global.css";
+const { title = "Sainttraining — Твоя сила. Твой ритм." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#aebcaf" />
+    <meta
+      name="description"
+      content="Sainttraining — тренировки, питание и движение в своём ритме."
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <noscript>
+      <style>
+        .intro-screen,
+        .training-portal {
+          display: none !important;
+        }
+      </style>
+      <p>Для калькулятора, открытия программ и анимаций включите JavaScript.</p>
+    </noscript>
+  </body>
+</html>

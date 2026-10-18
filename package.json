@@ -4,13 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0",
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "astro build",
+    "preview": "astro preview --host 0.0.0.0",
     "test": "node --test",
-    "export:html": "node scripts/export-html.mjs"
+    "export:html": "astro build && node scripts/export-html.mjs"
   },
-  "devDependencies": {
-    "vite": "^6.4.1"
+  "dependencies": {
+    "astro": "^5.16.0"
   }
 }

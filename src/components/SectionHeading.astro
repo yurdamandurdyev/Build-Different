@@ -1,0 +1,17 @@
+---
+interface Props {
+  label: string;
+  title: string;
+  description: string;
+}
+const { label, title, description } = Astro.props;
+---
+
+<div class="section-top">
+  <span class="eyebrow">{label}</span>
+  <span class="small-note">SAINTTRAINING / METHOD</span>
+</div>
+<div class="section-heading">
+  <h2 set:html={title} />
+  <p set:html={description} />
+</div>

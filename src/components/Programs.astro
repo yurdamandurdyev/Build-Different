@@ -1,0 +1,56 @@
+---
+import Arrow from "./Arrow.astro";
+import { programs, recipes, tips } from "../data.js";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section class="section" id="programs">
+  <SectionHeading
+    label="01 / ТРЕНИРОВКИ"
+    title="Не с понедельника.<br /><em>С себя.</em>"
+    description="Выбери движение, которое подходит тебе.<br />От первого подхода до новой привычки."
+  />
+  <div class="filters" role="group" aria-label="Вид тренировки">
+    {[
+      ["all", "Все программы"],
+      ["strength", "Сила"],
+      ["mobility", "Мобильность"],
+      ["cardio", "Выносливость"],
+    ].map(([v, t], i) => (
+      <button data-filter={v} class={i ? "" : "active"} aria-pressed={!i}>
+        {t}
+      </button>
+    ))}
+  </div>
+  <div class="program-grid">
+    {programs.map((p, i) => (
+      <article class="program-card" data-type={p.type}>
+        <button
+          class="card-image"
+          data-program={i}
+          aria-label={`Открыть ${p.name}`}
+        >
+          <span class="badge">{p.tag}</span>
+          <span class="program-poster" aria-hidden="true">
+            {["STRONG", "FLOW", "PACE"][i]}
+            <small>0{i + 1} / SAINTTRAINING</small>
+          </span>
+          <span class="round-arrow">
+            <Arrow />
+          </span>
+        </button>
+        <div class="card-meta">
+          ПРОГРАММА / 0{i + 1}
+          <span>{p.meta}</span>
+        </div>
+        <h3>
+          <button class="text-button" data-program={i}>
+            {p.name}
+          </button>
+        </h3>
+        <p>{p.desc}</p>
+      </article>
+    ))}
+  </div>
+  <p id="saved-program" class="saved" aria-live="polite"></p>
+</section>
